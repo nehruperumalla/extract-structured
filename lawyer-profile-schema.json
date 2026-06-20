@@ -1,0 +1,77 @@
+{
+  "type": "object",
+  "properties": {
+    "foundLawyer":    { "type": "boolean" },
+    "firstName":      { "type": "string" },
+    "lastName":       { "type": "string" },
+    "fullName":       { "type": "string" },
+    "jobTitle":       { "type": "string" },
+    "estimatedAge":   { "type": ["integer", "null"] },
+    "description":    { "type": "string" },
+    "country":        { "type": "string" },
+    "stateOrProvince":{ "type": "string" },
+    "city":           { "type": "string" },
+    "degrees": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "degreeName":  { "type": "string" },
+          "institution": { "type": "string" },
+          "year":        { "type": ["integer", "null"] },
+          "majors":      { "type": "array", "items": { "type": "string" } },
+          "minors":      { "type": "array", "items": { "type": "string" } },
+          "honors":      { "type": ["string", "null"] }
+        },
+        "required": ["degreeName", "institution", "year", "majors", "minors", "honors"],
+        "additionalProperties": false
+      }
+    },
+    "practiceAreas":           { "type": "array", "items": { "type": "string" } },
+    "normalizedPracticeAreas": { "type": "array", "items": { "type": "string" } },
+    "mattersAndDeals":         { "type": "array", "items": { "type": "string" } },
+    "leadershipPositions":     { "type": "array", "items": { "type": "string" } },
+    "awards": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title":        { "type": "string" },
+          "organization": { "type": "string" },
+          "year":         { "type": ["integer", "null"] }
+        },
+        "required": ["title", "organization", "year"],
+        "additionalProperties": false
+      }
+    },
+    "barAdmissions": { "type": "array", "items": { "type": "string" } },
+    "courts":        { "type": "array", "items": { "type": "string" } },
+    "priorExperiences": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "firmName":  { "type": "string" },
+          "fromYear":  { "type": ["integer", "null"] },
+          "toYear":    { "type": ["integer", "null"] },
+          "jobTitle":  { "type": "string" }
+        },
+        "required": ["firmName", "jobTitle", "fromYear", "toYear"],
+        "additionalProperties": false
+      }
+    },
+    "phoneNumber": { "type": ["string", "null"] },
+    "email":       { "type": ["string", "null"] },
+    "isPartner":   { "type": "boolean" },
+    "jobType": {
+      "type": "string",
+      "enum": ["Partner", "Managing Associate", "Senior Associate", "Associate", "Counsel", "Other"]
+    }
+  },
+  "required": ["foundLawyer", "firstName", "lastName", "fullName", "jobTitle",
+               "estimatedAge", "description", "country", "stateOrProvince", "city",
+               "degrees", "practiceAreas", "normalizedPracticeAreas", "mattersAndDeals",
+               "leadershipPositions", "awards", "barAdmissions", "courts", "priorExperiences",
+               "phoneNumber", "email", "isPartner", "jobType"],
+  "additionalProperties": false
+}
